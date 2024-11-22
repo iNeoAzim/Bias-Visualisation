@@ -15,7 +15,7 @@ num_pairs = random.randint (4, 20)
 bias_points = genpoints(num_pairs)
 
 #//Unpack the list (x and y)
-bias_x, bias_y = zip(bias_points)
+bias_x, bias_y = zip(*bias_points)
 counter_bias_x = [x for x in bias_x]
 counter_bias_y = [y for y in bias_y]
 
