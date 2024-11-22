@@ -23,3 +23,7 @@ counter_bias_y = [y for y in bias_y]
 plt.figure(figsize=(10, 10))
 plt.axhline(0, color="Black", linewidth = 0.5)
 plt.axvline(0, color="Black", linewidth = 0.5)
+
+#// Make a png to show BIAS Visualisation in a picture 
+plt.savefig("bias_visual.png")
+plt.show()
