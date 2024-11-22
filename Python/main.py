@@ -1,5 +1,4 @@
 import matplotlib.pyplot as plt 
 import numpy as np
-
-bias_points = [
-(6
+import random,string
+# Bias visualisation / Random points / Colors
