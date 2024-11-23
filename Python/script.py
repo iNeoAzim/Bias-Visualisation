@@ -1,45 +1,50 @@
-#// Using Jupyter for viewing compilator for Java
-import matplotlib.pyplot as plt 
+import matplotlib.pyplot as plt
 import numpy as np
-import random,string
+import random, string
 
-#// Bias generate random points
-def genpoints(num_points=4, limit=10):
-    points= [(random.randint(1, limit), random.randint(1, limit)) for i in range (num_points)]
+# Generate random bias points
+def generate_random_points(num_points=4, limit=10):
+    points = [(random.randint(1, limit), random.randint(1, limit)) for _ in range(num_points)]
     return points
 
-#// Num bias-counterb pairs (from 4-20 seems ok )
-num_pairs = random.randint (4, 20)
+# Number of bias-counterbias pairs (random between 4 and 26)
+num_pairs = random.randint(4, 26)
 
-#// Random Bias Points call
-bias_points = genpoints(num_pairs)
+#Generate random bias points
+bias_points = generate_random_points(num_pairs)
 
-#//Unpack the list (x and y)
+#// Extract bias and counter-bias points
 bias_x, bias_y = zip(*bias_points)
 counter_bias_x = [x for x in bias_x]
 counter_bias_y = [y for y in bias_y]
 
-#// Plotting the info in diagram
+#// Plot the diagram
 plt.figure(figsize=(10, 10))
-plt.axhline(0, color="Black", linewidth = 0.5)
-plt.axvline(0, color="Black", linewidth = 0.5)
+plt.axhline(0, color='black', linewidth=0.5)  # Horizontal axis
+plt.axvline(0, color='black', linewidth=0.5)  # Vertical axis
 
-#// Grid to make it look nice and clear
-plt.grid(color= "gray", linestyle = "--", linewidth = 0.5)
+#// Add grid
+plt.grid(color='gray', linestyle='--', linewidth=0.5)
 
-#//Plot BIAS red and blue  (CounterB and Bias)
-plt.scatter(counter_bias_x, counter_bias_y, color = "blue", label = "Bias Point")
-plt.scatter(bias_x, bias_y, color = "red", label = "Counter Bias Points")
+#// Plot lines connecting biases to counter-biases with labels
+for i, (x, y, cx, cy) in enumerate(zip(bias_x, bias_y, counter_bias_x, counter_bias_y)):
+    label = string.ascii_uppercase[i] if i < 26 else f"A{i}"  # Generate labels
+    color = [random.random() for _ in range(3)]  # Random color
+    plt.plot([x, cx], [y, cy], linestyle='-', color=color, alpha=0.7, label=f"Line {label}")
+    plt.text((x + cx) / 2, (y + cy) / 2, label, color=color, fontsize=9, fontweight='bold')
 
-#// Set Axis Limits and the Labels
+#// Plot bias and counter-bias points
+plt.scatter(bias_x, bias_y, color='blue', label='Bias Points')
+plt.scatter(counter_bias_x, counter_bias_y, color='red', label='Counter-Bias Points')
+
+#//Set axis limits and labels
 plt.xlim(-15, 15)
 plt.ylim(-15, 15)
-plt.xlabel("X--Axis")
-plt.ylabel("Y--Axis")
-plt.title("Bias and Counter Bias Points Random")
-plt.legend
+plt.xlabel("X-axis")
+plt.ylabel("Y-axis")
+plt.title("Randomized Bias Visualization")
+plt.legend()
 
-
-#// Make a png to show BIAS Visualisation in a picture 
-plt.savefig("bias_visual.png")
+#// Make a png to show the BIAS Visualisation as an image file
+plt.savefig("bias_pics/bias_visual.png")
 plt.show()
