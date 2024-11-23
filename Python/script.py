@@ -24,6 +24,22 @@ plt.figure(figsize=(10, 10))
 plt.axhline(0, color="Black", linewidth = 0.5)
 plt.axvline(0, color="Black", linewidth = 0.5)
 
+#// Grid to make it look nice and clear
+plt.grid(color= "gray", linestyle = "--", linewidth = 0.5)
+
+#//Plot BIAS red and blue  (CounterB and Bias)
+plt.scatter(counter_bias_x, counter_bias_y, color = "blue", label = "Bias Point")
+plt.scatter(bias_x, bias_y, color = "red", label = "Counter Bias Points")
+
+#// Set Axis Limits and the Labels
+plt.xlim(-15, 15)
+plt.ylim(-15, 15)
+plt.xlabel("X--Axis")
+plt.ylabel("Y--Axis")
+plt.title("Bias and Counter Bias Points Random")
+plt.legend
+
+
 #// Make a png to show BIAS Visualisation in a picture 
 plt.savefig("bias_visual.png")
 plt.show()
