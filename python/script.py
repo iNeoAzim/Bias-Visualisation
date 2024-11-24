@@ -1,7 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import random, string
-r
 
 # Generate random bias points
 def generate_random_points(num_points=4, limit=10):
@@ -16,8 +15,8 @@ bias_points = generate_random_points(num_pairs)
 
 #// Extract bias and counter-bias points
 bias_x, bias_y = zip(*bias_points)
-counter_bias_x = [x for x in bias_x]
-counter_bias_y = [y for y in bias_y]
+counter_bias_x = [-x for x in bias_x]
+counter_bias_y = [-y for y in bias_y]
 
 #// Plot the diagram
 plt.figure(figsize=(10, 10))
