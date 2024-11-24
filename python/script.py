@@ -32,7 +32,7 @@ for i, (x, y, cx, cy) in enumerate(zip(bias_x, bias_y, counter_bias_x, counter_b
     color = [random.random() for _ in range(3)]  # Random color
     plt.plot([x, cx], [y, cy], linestyle='-', color=color, alpha=0.7, label=f"Line {label}")
     
-    # Place text at 90% distance along the line from the bias point
+    #// Letters at 90% distance along the line 
     text_x = x + (cx - x) * 0.90
     text_y = y + (cy - y) * 0.90
     plt.text(text_x, text_y, label, color=color, fontsize=9, fontweight='bold', ha='center', va='center')
