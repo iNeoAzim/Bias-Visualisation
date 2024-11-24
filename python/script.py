@@ -7,8 +7,8 @@ def generate_random_points(num_points=4, limit=10):
     points = [(random.randint(1, limit), random.randint(1, limit)) for _ in range(num_points)]
     return points
 
-# Number of bias-counterbias pairs (random between 4 and 20)
-num_pairs = random.randint(4, 20)
+# Number of bias-counterbias pairs (random between 4 and 26)
+num_pairs = random.randint(4, 26)
 
 #Generate random bias points
 bias_points = generate_random_points(num_pairs)
@@ -31,7 +31,11 @@ for i, (x, y, cx, cy) in enumerate(zip(bias_x, bias_y, counter_bias_x, counter_b
     label = string.ascii_uppercase[i] if i < 26 else f"A{i}"  # Generate labels
     color = [random.random() for _ in range(3)]  # Random color
     plt.plot([x, cx], [y, cy], linestyle='-', color=color, alpha=0.7, label=f"Line {label}")
-    plt.text((x + cx) / 2, (y + cy) / 2, label, color=color, fontsize=9, fontweight='bold')
+    
+    # Place text at 90% distance along the line from the bias point
+    text_x = x + (cx - x) * 0.90
+    text_y = y + (cy - y) * 0.90
+    plt.text(text_x, text_y, label, color=color, fontsize=9, fontweight='bold', ha='center', va='center')
 
 #// Plot bias and counter-bias points
 plt.scatter(bias_x, bias_y, color='blue', label='Bias Points')
@@ -48,3 +52,4 @@ plt.legend()
 #// Make a png to show the BIAS Visualisation as an image file
 plt.savefig("bias_pics/bias_visual.png")
 plt.show()
+#// Pic saved to bias_pics folder
