@@ -7,8 +7,8 @@ def generate_random_points(num_points=4, limit=10):
     points = [(random.randint(1, limit), random.randint(1, limit)) for _ in range(num_points)]
     return points
 
-# Number of bias-counterbias pairs (random between 4 and 26)
-num_pairs = random.randint(4, 26)
+# Number of bias-counterbias pairs (random between 4 and 20)
+num_pairs = random.randint(4, 20)
 
 #Generate random bias points
 bias_points = generate_random_points(num_pairs)
