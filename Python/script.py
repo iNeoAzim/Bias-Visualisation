@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import random, string
+r
 
 # Generate random bias points
 def generate_random_points(num_points=4, limit=10):
