@@ -1,4 +1,4 @@
-body {
+body{
     margin: 0;
     padding: 0;
     display: flex;
@@ -8,18 +8,18 @@ body {
     background-color: #f0f0f0;
 }
 
-.container {
+.container{
     text-align: center;
 }
 
-img {
+img{
     max-width: 90%;
     height: auto;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
 }
 
-h1 {
+h1{
     color: #333;
     font-family: Arial, sans-serif;
     margin-bottom: 20px;
