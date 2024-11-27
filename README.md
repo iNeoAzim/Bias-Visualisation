@@ -1,2 +1,3 @@
-Bias-Visualisation using Plots </dir>
-Saving the Visual after Python run in a png file ( Easy method for after extraction )
+- Bias-Visualisation using Plots
+- Saving the Visual after Python run in a png file ( Easy method for after extraction .
+- Steps for execution ( RUN "script.py", WATCH the new photo added in the "bias_pics" folder
